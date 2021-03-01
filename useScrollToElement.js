@@ -10,7 +10,7 @@ export const useScrollToElement = () => {
 	}
 
 	const scrollToTarget = (node) => {
-		const value: number = window.scrollY + node.getBoundingClientRect().top
+		const value = window.scrollY + node.getBoundingClientRect().top
 
 		window.addEventListener('wheel', onWheel)
 
