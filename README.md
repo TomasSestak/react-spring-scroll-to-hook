@@ -9,6 +9,7 @@
 ```bash
 npm install react-spring-scroll-to-hook
 ```
+
 ```bash
 yarn add react-spring-scroll-to-hook
 ```
@@ -21,12 +22,12 @@ import {config} from '@react-spring/web'
 import useScrollTo from 'react-spring-scroll-to-hook'
 
 const BasicExampleWthConfig = () => {
-  const {scrollTo} = useScrollTo(config.molasses)
-  return (
-    <button type="button" onClick={() => scrollTo(document.querySelector('#id'))}>
-        Scroll to Element
-    </button>
-  )
+	const {scrollTo} = useScrollTo(config.molasses)
+	return (
+		<button type="button" onClick={() => scrollTo(document.querySelector('#id'))}>
+			Scroll to Element
+		</button>
+	)
 }
 
 const ScrollToTop = () => {
