@@ -1,7 +1,7 @@
 {
   "name": "react-spring-scroll-to-hook-example",
   "homepage": "https://TomasSestak.github.io/react-spring-scroll-to-hook",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "license": "MIT",
   "private": true,
   "dependencies": {

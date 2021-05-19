@@ -7,30 +7,39 @@
 ## Install
 
 ```bash
-npm install --save react-spring-scroll-to-hook
+npm install react-spring-scroll-to-hook
+```
+```bash
+yarn add react-spring-scroll-to-hook
 ```
 
 ## Usage
 
 ```tsx
-import * as React from 'react'
 
-import { useMyHook } from 'react-spring-scroll-to-hook'
+import {config} from '@react-spring/web'
+import useScrollTo from 'react-spring-scroll-to-hook'
 
-const Example = () => {
-  const example = useMyHook()
+const BasicExampleWthConfig = () => {
+  const {scrollTo} = useScrollTo(config.molasses)
   return (
-    <div>
-      {example}
-    </div>
+    <button type="button" onClick={() => scrollTo(document.querySelector('#id'))}>
+        Scroll to Element
+    </button>
   )
 }
+
+const ScrollToTop = () => {
+	const {scrollTo} = useScrollTo()
+	return (
+		<button type="button" onClick={scrollTo}>
+			Scroll to the top of the page with default config
+		</button>
+	)
+}
+
 ```
 
 ## License
 
 MIT © [TomasSestak](https://github.com/TomasSestak)
-
----
-
-This hook is created using [create-react-hook](https://github.com/hermanya/create-react-hook).

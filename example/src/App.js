@@ -1,13 +1,16 @@
 import React from 'react'
-
-import { useMyHook } from 'react-spring-scroll-to-hook'
+import {config} from '@react-spring/web';
+import useScrollTo from 'react-spring-scroll-to-hook'
 
 const App = () => {
-  const example = useMyHook()
-  return (
-    <div>
-      {example}
-    </div>
-  )
+	const {scrollTo} = useScrollTo(config.molasses)
+	return (
+		<>
+			<header id={'id'}/>
+			<button type="button" onClick={scrollTo}>
+				Click me!
+			</button>
+		</>
+	)
 }
 export default App

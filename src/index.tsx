@@ -1,23 +1,41 @@
-import * as React from 'react';
+import {SpringConfig, useSpring} from '@react-spring/web';
 
-export const useMyHook = () => {
-  let [{
-    counter
-  }, setState] = React.useState<{
-    counter: number;
-  }>({
-    counter: 0
-  });
+export default function(config?: SpringConfig) {
+	const [, api] = useSpring(() => ({ y: 0 }));
 
-  React.useEffect(() => {
-    let interval = window.setInterval(() => {
-      counter++;
-      setState({counter})
-    }, 1000)
-    return () => {
-      window.clearInterval(interval);
-    };
-  }, []);
+	let isStopped = false;
+	const onWheel = () => {
+		isStopped = true;
+		window.removeEventListener('wheel', onWheel);
+	};
 
-  return counter;
+	const scrollTo = (value?: HTMLElement | number) => {
+		let y = 0;
+
+		if (typeof value === 'number') {
+			y = value;
+		} else if (value?.nodeType === 1) {
+			y = window.scrollY + value.getBoundingClientRect().top;
+		}
+
+		window.addEventListener('wheel', onWheel);
+
+		api.start({
+			y,
+			reset: true,
+			from: { y: window.scrollY },
+			config,
+			onRest: () => {
+				isStopped = false;
+				window.removeEventListener('wheel', onWheel);
+			},
+			onChange: (_, ctrl) => {
+				if (!isStopped) {
+					window.scroll(0, ctrl.get().y);
+				}
+			},
+		});
+	};
+
+	return { scrollTo };
 };
