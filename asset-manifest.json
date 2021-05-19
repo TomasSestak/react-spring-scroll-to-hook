@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/react-spring-scroll-to-hook/static/css/main.1ad5d9ac.chunk.css",
+    "main.js": "/react-spring-scroll-to-hook/static/js/main.2b3b0c1d.chunk.js",
+    "main.js.map": "/react-spring-scroll-to-hook/static/js/main.2b3b0c1d.chunk.js.map",
+    "runtime-main.js": "/react-spring-scroll-to-hook/static/js/runtime-main.22140edb.js",
+    "runtime-main.js.map": "/react-spring-scroll-to-hook/static/js/runtime-main.22140edb.js.map",
+    "static/js/2.166317d8.chunk.js": "/react-spring-scroll-to-hook/static/js/2.166317d8.chunk.js",
+    "static/js/2.166317d8.chunk.js.map": "/react-spring-scroll-to-hook/static/js/2.166317d8.chunk.js.map",
+    "index.html": "/react-spring-scroll-to-hook/index.html",
+    "precache-manifest.76bbbfcbb37eabd264fcfcb51be5bfec.js": "/react-spring-scroll-to-hook/precache-manifest.76bbbfcbb37eabd264fcfcb51be5bfec.js",
+    "service-worker.js": "/react-spring-scroll-to-hook/service-worker.js",
+    "static/css/main.1ad5d9ac.chunk.css.map": "/react-spring-scroll-to-hook/static/css/main.1ad5d9ac.chunk.css.map",
+    "static/js/2.166317d8.chunk.js.LICENSE.txt": "/react-spring-scroll-to-hook/static/js/2.166317d8.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.22140edb.js",
+    "static/js/2.166317d8.chunk.js",
+    "static/css/main.1ad5d9ac.chunk.css",
+    "static/js/main.2b3b0c1d.chunk.js"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "short_name": "react-spring-scroll-to-hook",
+  "name": "react-spring-scroll-to-hook",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
