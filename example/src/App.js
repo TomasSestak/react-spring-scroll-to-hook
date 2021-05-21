@@ -7,7 +7,7 @@ const App = () => {
 	return (
 		<>
 			<header id={'id'}/>
-			<button type="button" onClick={scrollTo}>
+			<button type="button" onClick={() => scrollTo('#id', 20)}>
 				Click me!
 			</button>
 		</>

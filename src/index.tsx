@@ -9,13 +9,18 @@ export default function(config?: SpringConfig) {
 		window.removeEventListener('wheel', onWheel);
 	};
 
-	const scrollTo = (value?: HTMLElement | number) => {
+	const scrollTo = (value?: Element | number | string | null, offset?: number) => {
 		let y = 0;
 
 		if (typeof value === 'number') {
 			y = value;
+		}  else if (typeof value === 'string') {
+			value = document.querySelector(value);
+			if (value) {
+				y = window.scrollY + value.getBoundingClientRect().top + (offset ?? 0)
+			}
 		} else if (value?.nodeType === 1) {
-			y = window.scrollY + value.getBoundingClientRect().top;
+			y = window.scrollY + value.getBoundingClientRect().top + (offset ?? 0);
 		}
 
 		window.addEventListener('wheel', onWheel);
