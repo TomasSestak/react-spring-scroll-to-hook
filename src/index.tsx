@@ -1,7 +1,7 @@
 import {SpringConfig, useSpring} from '@react-spring/web';
 
 export default function(config?: SpringConfig) {
-	const [, api] = useSpring(() => ({ y: 0 }));
+	const [, api] = useSpring(() => ({y: 0}));
 
 	let isStopped = false;
 	const onWheel = () => {
@@ -9,18 +9,18 @@ export default function(config?: SpringConfig) {
 		window.removeEventListener('wheel', onWheel);
 	};
 
-	const scrollTo = (value?: Element | number | string | null, offset?: number) => {
+	const scrollTo = (value?: Element | number | string | null, offset: number = 0) => {
 		let y = 0;
 
 		if (typeof value === 'number') {
 			y = value;
-		}  else if (typeof value === 'string') {
+		} else if (typeof value === 'string') {
 			value = document.querySelector(value);
 			if (value) {
-				y = window.scrollY + value.getBoundingClientRect().top + (offset ?? 0)
+				y = window.scrollY + value.getBoundingClientRect().top + offset;
 			}
 		} else if (value?.nodeType === 1) {
-			y = window.scrollY + value.getBoundingClientRect().top + (offset ?? 0);
+			y = window.scrollY + value.getBoundingClientRect().top + offset;
 		}
 
 		window.addEventListener('wheel', onWheel);
@@ -28,7 +28,7 @@ export default function(config?: SpringConfig) {
 		api.start({
 			y,
 			reset: true,
-			from: { y: window.scrollY },
+			from: {y: window.scrollY},
 			config,
 			onRest: () => {
 				isStopped = false;
@@ -42,5 +42,5 @@ export default function(config?: SpringConfig) {
 		});
 	};
 
-	return { scrollTo };
+	return {scrollTo};
 };
