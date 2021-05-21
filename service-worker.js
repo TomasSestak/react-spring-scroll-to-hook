@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/react-spring-scroll-to-hook/precache-manifest.7d4c4cd3bc97a53ddd0aff59f045304c.js"
+  "/react-spring-scroll-to-hook/precache-manifest.9eb5c19087fd272c2f8511387e326fe8.js"
 );
 
 self.addEventListener('message', (event) => {
