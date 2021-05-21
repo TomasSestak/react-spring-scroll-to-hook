@@ -1,6 +1,6 @@
 import {SpringConfig, useSpring} from '@react-spring/web';
 
-export default function(config?: SpringConfig) {
+export default function (config?: SpringConfig) {
 	const [, api] = useSpring(() => ({y: 0}));
 
 	let isStopped = false;
@@ -14,14 +14,18 @@ export default function(config?: SpringConfig) {
 
 		if (typeof value === 'number') {
 			y = value;
-		} else if (typeof value === 'string') {
-			value = document.querySelector(value);
-			if (value) {
-				y = window.scrollY + value.getBoundingClientRect().top + offset;
+		} else if (typeof value === 'string' || value?.nodeType === 1) {
+			if (typeof value === 'string') {
+				value = document.querySelector(value);
 			}
-		} else if (value?.nodeType === 1) {
-			y = window.scrollY + value.getBoundingClientRect().top + offset;
+			if (!value) {
+				console.error('react-spring-scroll-to-hook: Element not found')
+			} else {
+				y = window.scrollY + value.getBoundingClientRect().top;
+			}
 		}
+
+		y+=offset;
 
 		window.addEventListener('wheel', onWheel);
 
